@@ -42,9 +42,7 @@ else
   binaries = ['bin/node']
 end
 
-if node['nodejs']['npm']['install_method'] != 'source'
-  binaries.push('bin/npm')
-end
+binaries.push('bin/npm') if node['nodejs']['npm']['install_method'] != 'source'
 
 if node['nodejs']['binary']['url']
   nodejs_bin_url = node['nodejs']['binary']['url']
